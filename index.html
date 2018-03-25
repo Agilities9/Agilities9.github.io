@@ -47,6 +47,35 @@
 
 <article>
 	<div class="article_time">
+	 周日 25 三月 2018
+	</div>
+  <div class="article_title">
+    <h1><a href="/2018-03-25.html">树莓派通过网线共享PC无线网</a></h1>
+  </div>
+  <div class="article_text">
+    <h4>树莓派端的设置</h4>
+<p>首先putty通过串口方式连接到树莓派<br/>
+<code>sudo vim /etc/network/interfaces</code><br/>
+设置网卡为dhcp自动获取IP
+<pre>
+iface eth0 inet dhcp
+iface default inet dhcp
+</pre></p>
+<h4>PC端设置</h4>
+<blockquote>
+<p>Wlan属性-&gt;共享-&gt;允许其他网络用户通过此计算机的Internet连接来连接-&gt;家庭网络连接：以太网</p>
+</blockquote>
+<p>windows会自动为本地连接设置静态ip<br/>
+&emsp;ip:192.168.137.1<br/>
+  &emsp;mask:255.255.255.0<br/></p>
+<h3>PC查找树莓派的IP</h3>
+<p>之后使用派就可以不使用 USB To TTL了,只要用网线将派与PC连接,通过<code>arp -a</code>
+查看192.168.137.1接口底下的同网段地址，就可以用putty或是vnc通过ssh连接到派。<br/></p>
+  </div>
+</article>
+<hr />
+<article>
+	<div class="article_time">
 	 周一 11 七月 2016
 	</div>
   <div class="article_title">

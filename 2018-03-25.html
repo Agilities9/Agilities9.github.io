@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="chinese (simplified)">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Armand">
+  <meta name="description" content="Posts and writings by Armand">
+
+
+<meta name="keywords" content="network">
+
+  <title>
+    AmblingAlp
+&ndash; 树莓派通过网线共享PC无线网  </title>
+
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="/">
+        <img src="/theme/images/logo.jpg" alt="logo">
+      </a>
+      <h2><a href="">Armand</a></h2>
+      <p>AmblingAlp is a song.</p>
+      <ul>
+        <li><a href="https://weibo.com/6188787520/profile?topnav=1&wvr=6&is_hot=1" target="_blank">weibo</a></li>
+        <li><a href="https://github.com/Ambling-Alp" target="_blank">Github</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="/2018-03-25.html">树莓派通过网线共享PC无线网</a></h1>
+  </div>
+  <div class="article_text">
+    <h4>树莓派端的设置</h4>
+<p>首先putty通过串口方式连接到树莓派<br/>
+<code>sudo vim /etc/network/interfaces</code><br/>
+设置网卡为dhcp自动获取IP
+<pre>
+iface eth0 inet dhcp
+iface default inet dhcp
+</pre></p>
+<h4>PC端设置</h4>
+<blockquote>
+<p>Wlan属性-&gt;共享-&gt;允许其他网络用户通过此计算机的Internet连接来连接-&gt;家庭网络连接：以太网</p>
+</blockquote>
+<p>windows会自动为本地连接设置静态ip<br/>
+&emsp;ip:192.168.137.1<br/>
+  &emsp;mask:255.255.255.0<br/></p>
+<h3>PC查找树莓派的IP</h3>
+<p>之后使用派就可以不使用 USB To TTL了,只要用网线将派与PC连接,通过<code>arp -a</code>
+查看192.168.137.1接口底下的同网段地址，就可以用putty或是vnc通过ssh连接到派。<br/></p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: 周日 25 三月 2018</p>
+    <p>Category: <a href="/category/raspberrypi.html">RaspberryPi</a>
+ &ndash; Tags:
+      <a href="/tag/network.html">network</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; Armand. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+    </div>
+  </main>
+</body>
+</html>
